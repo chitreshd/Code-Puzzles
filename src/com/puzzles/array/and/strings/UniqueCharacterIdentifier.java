@@ -6,7 +6,7 @@ public class UniqueCharacterIdentifier
 	public static boolean hasUniqueChars(char [] input)
 	{
 		if(input == null)
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Null value is not allowed");
 		
 		if(input.length == 1)
 			return true;

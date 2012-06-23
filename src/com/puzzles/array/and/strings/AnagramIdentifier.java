@@ -9,7 +9,7 @@ public class AnagramIdentifier
 	public static boolean isAnagram(String subject, String otherString)
 	{
 		if(subject == null || otherString == null)
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("Null value is not allowed");
 		
 		if(subject.replaceAll("\\s","").length() != otherString.replaceAll("\\s","").length())
 			return false;
