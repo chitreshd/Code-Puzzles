@@ -11,6 +11,8 @@ package com.puzzles.linkedlists;
 public class Node
 {
     private Node next = null;
+    private Node prev = null;
+    
     private int data;
     
     public int data()
@@ -19,6 +21,34 @@ public class Node
     }
     
     public Node next()
+    {
+        return next;
+    }
+    
+    public void setNext(Node newNext)
+    {
+        next = newNext;
+        if(newNext != null && newNext.prev != this)
+        {
+            newNext.setPrevious(this);
+        }
+    }
+    
+    public void setPrevious(Node newPrev)
+    {
+        prev = newPrev;
+        if(newPrev != null && newPrev.next != this)
+        {
+            newPrev.setNext(this);
+        }
+    }
+    
+    public Node getPrev()
+    {
+        return prev;
+    }
+    
+    public Node getNext()
     {
         return next;
     }
@@ -40,26 +70,53 @@ public class Node
         currentEnd.next = newEnd;
     }
     
+    /**
+     * This will delete the first occurrence of the node.
+     * @param head
+     * @param d
+     * @return
+     */
     public static Node deleteNode(Node head, int d)
     {
-        Node n = head;
-        
         if(head.data == d)
         {
             return head.next;
         }
         
-        while(n.next != null)
+        Node temp = head;
+        
+        while(temp != null)
         {
-            if(n.next.data == d)
+            if(temp.next != null && temp.next.data == d)
             {
-                n.next = n.next.next;
+                temp.next = temp.next.next;
+                //return head;
             }
-            return head;
+            temp = temp.next;
         }
-        n = n.next;
         
         return head;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "Node [data=" + data + "]";
+    }
+    
+    public static String printForward(Node head)
+    {
+        Node current = head;
+        StringBuffer buff = new StringBuffer();
+        buff.append(current.data());
+        while(current.getNext() != null)
+        {
+            buff.append(" -> ");
+            buff.append(current.getNext().data());
+            current = current.getNext();
+        }
+        
+        return buff.toString();
     }
 
 }

@@ -26,7 +26,7 @@ public class TestNode
     @Test
     public void testForDelete()
     {
-        Node head = constructDummyLinkedList();
+        Node head = LinkedListTestUtils.constructDummyLinkedList();
         /*
          * Thus we have 5->6->7->8 as a linked list.We will try to delete 6 from
          * the list.
@@ -43,7 +43,7 @@ public class TestNode
 
         assertEquals(head.next().data(), 7);
 
-        head = constructDummyLinkedList();
+        head = LinkedListTestUtils.constructDummyLinkedList();
         /*
          * Thus we again have 5->6->7->8 as a linked list. Now will try to
          * delete the head thats 5 from the list.
@@ -51,15 +51,14 @@ public class TestNode
         assertEquals(head.data(),5);
         head = Node.deleteNode(head, 5);
         assertEquals(head.data(),6);
-    }
-
-    private Node constructDummyLinkedList()
-    {
-        Node head = new Node(5);
-        head.appendToTail(6);
-        head.appendToTail(7);
-        head.appendToTail(8);
-        return head;
+        
+        head = LinkedListTestUtils.constructDummyLinkedList();
+        /*
+         * Thus we again have 5->6->7->8 as a linked list. Now will try to
+         * delete the tail thats 8 from the list.
+         */
+        head = Node.deleteNode(head, 8);
+        assertNull(head.next().next().next());
     }
 
 }
