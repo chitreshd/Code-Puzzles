@@ -19,7 +19,7 @@ public class TestDuplicateRemover
         
         DuplicateRemover.removeDuplicates(head);
         
-        assertNull(head.next().next().next().next());
+        assertNull(head.next().next().next().next().next());
         
     }
 

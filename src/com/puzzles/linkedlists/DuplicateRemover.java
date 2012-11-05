@@ -32,6 +32,8 @@ public class DuplicateRemover
             }
             
             current = current.next();
+            if (current == null)
+            	break;
         }
     }
 
