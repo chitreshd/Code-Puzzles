@@ -2,7 +2,7 @@ package com.puzzles.ds;
 
 /**
  * Node for a tree. Borrowed from CareerCup 
- * @author Chitresh Deshpande
+ * @author CareerCup
  * @param <T>
  *
  */

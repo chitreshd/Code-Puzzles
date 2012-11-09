@@ -2,6 +2,10 @@ package com.puzzles.treeandgraph;
 
 import com.puzzles.ds.TreeNode;
 
+/**
+ * @author Chitresh Deshpande
+ *
+ */
 public class BalancedTreeIdentifier 
 {
 	
