@@ -95,4 +95,11 @@ public class TreeNode<T>
 	public static <T> TreeNode<T> createMinimalBST(T array[]) {
 		return addToTree(array, 0, array.length - 1);
 	}
+
+	@Override
+	public String toString() {
+		return "TreeNode [data=" + data + "]";
+	}
+	
+	
 } 
